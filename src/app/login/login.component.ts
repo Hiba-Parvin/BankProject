@@ -9,8 +9,8 @@ export class LoginComponent {
   data = "Your Perfect Banking Partner" //Example For String Interpolation
   data1 = "Enter Your Account No :" //Example For Property Binding
 
-  // accno: any
-  // pass: any
+  accno: any
+  pass: any
   // or accno="" Declaring variable to store value from $Event Binding Method
 
   userDetails: any = {
@@ -31,23 +31,24 @@ export class LoginComponent {
   //methods
 
 
-  // login(){
-  //   var accnum=this.accno
-  //   var pass=this.pass
-  //   if(accnum in this.userDetails){
-  //     if(pass==this.userDetails[accnum]["password"])
-  //     {
-  //       alert('Login Successfull')
-  //     }
-  //     else{
-  //       alert('Incorrect Password')
-  //     }
-  //   }
+  login(){
+    var accnum=this.accno
+    var pass=this.pass
+    var userDetails=this.userDetails
+    if(accnum in this.userDetails){
+      if(pass==this.userDetails[accnum]["password"])
+      {
+        alert('Login Successfull')
+      }
+      else{
+        alert('Incorrect Password')
+      }
+    }
 
-  //   else{
-  //     alert('Not Registered Account !')
-  //   }
-  // }
+    else{
+      alert('Not Registered Account !')
+    }
+  }
 
 
   //$Event Binding Method
@@ -61,28 +62,24 @@ export class LoginComponent {
   //   this.pass=event.target.value
   // }
 
+//Event Binding With Template Rendering Variable
+  // login(accno: any, pass: any) {
+  //   console.log(accno.value, pass.value);
+  //   var accnum = accno.value
+  //   var pass = pass.value
+  //   if (accnum in this.userDetails) {
+  //     if (pass == this.userDetails[accnum]["password"]) {
+  //       alert('Login Successfull')
+  //     }
+  //     else {
+  //       alert('Incorrect Password')
+  //     }
+  //   }
 
-  login(accno:any,pass:any){
-console.log(accno.value,pass.value);
-
-
-
-    var accnum=accno.value
-    var pass=pass.value
-    if(accnum in this.userDetails){
-      if(pass==this.userDetails[accnum]["password"])
-      {
-        alert('Login Successfull')
-      }
-      else{
-        alert('Incorrect Password')
-      }
-    }
-   
-    else{
-      alert('Not Registered Account !')
-    }
-  }
+  //   else {
+  //     alert('Not Registered Account !')
+  //   }
+  // }
 
 
 }
