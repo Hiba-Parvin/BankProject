@@ -1,0 +1,44 @@
+.loginbtn{
+    background-color: #f9745c;
+    color: #324a51;
+    margin-bottom: 2%;
+
+}
+.lgh{
+    color: #fb937d;
+    text-shadow: #fb937d;
+}
+
+.loginbtn:hover{
+    background-color: #fb937d;
+}
+.loginfrm{
+    background-color: rgba(50,74,81,.7);
+    color: rgb(18, 31, 35);
+    width: 50%;
+    border-radius: 30px;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+.loginfrm:hover{
+    transform: scale(1.03);
+    box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+}
+a{
+    text-decoration: none;
+    color:  #fb937d;
+}
+@media screen and ( max-width: 1200px) {
+    
+    .loginfrm{
+        width: 52%
+    }
+    
+}
+
+/* @media screen and ( max-width: 70px) {
+    
+    .loginfrm{
+        width: 90%
+    }
+    
+} */
