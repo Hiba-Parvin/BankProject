@@ -1,0 +1,13 @@
+<div class="loginfrm container mt-3 p-3 table table-bordered w-50 text-center">
+    <h3>Transaction History</h3>
+    <table class="text-white container mt-3 p-2 table table-bordered w-100 text-center">
+        <tr>
+            <th class="p-3">Transaction Type : </th>
+            <th>Amount : </th>
+        </tr>
+        <tr *ngFor="let i of transactionArray">
+            <td>{{i.Type}}</td>
+            <td>{{i.Amount}}</td>
+        </tr>
+    </table>
+</div>
