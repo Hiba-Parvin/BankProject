@@ -2,7 +2,7 @@
     <h5 class="m-3 ps-4">{{data}}</h5>
 </div>
 <div class="loginbx mt-5 text-center container ps-5 pe-5 ">
-    <form class="container p-5 loginfrm ">
+    <form (ngSubmit)="login()" class="container p-5 loginfrm ">
         <h3 class="lgh text-center pb-3">Account Login</h3>
 
         <input [(ngModel)]="accno" type="text" id="u1" name="uname" class="form-control p-2 mt-3 pb-1" [placeholder]="data1">
@@ -23,7 +23,7 @@
 
         <input (change)="passChange($event)" type="password" id="p1" name="password" class="form-control p-2 pt-0 mt-2" placeholder="Password : "> -->
 
-            <button (click)="login()" class="btn loginbtn ps-4 pe-4 mt-4 text-center ">Login</button><br>
+            <button type="submit" class="btn loginbtn ps-4 pe-4 mt-4 text-center ">Login</button><br>
             <!-- Event Binding  (click)="login()" -->
             <label for="">Need an Account? 
                 <a routerLink="register">Register </a>

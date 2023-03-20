@@ -1,1 +1,28 @@
-<p>dashboard works!</p>
+<h3 style="color:rgb(23, 63, 71)" class="p-3">Welcome {{user}}</h3>
+
+
+<div class="row">
+    <div class="col-6 loginbx mt-5 text-center container ps-5 pe-5 ">
+        <form (ngSubmit)="deposit()" class="container p-5 loginfrm ">
+            <h3 class="lgh text-center pb-3">Deposit</h3>
+
+            <input [(ngModel)]="acno1" type="text" id="ac1" name="acno1" class="form-control p-2 mt-3 pb-1" placeholder="Account Number : ">
+            <input [(ngModel)]="psw1" type="password" id="p1" name="password1" class="form-control p-2 pt-0 mt-3" placeholder="Password : ">
+            <input [(ngModel)]="amnt1" type="text" id="amt1" name="amnt1" class="form-control p-2 mt-3 pb-1" placeholder="Amount : ">
+            <button class="btn loginbtn ps-4 pe-4 mt-4 text-center ">Deposit</button><br>
+
+        </form>
+    </div>
+    <div class="col-6 loginbx mt-5 text-center container ps-5 pe-5 ">
+        <form (ngSubmit)="withdraw()" class="container p-5 loginfrm ">
+            <h3 class="lgh text-center pb-3">Withdraw</h3>
+
+            <input [(ngModel)]="acno2" type="text" id="ac2" name="acno2" class="form-control p-2 mt-3 pb-1" placeholder="Account Number : ">
+            <input [(ngModel)]="psw2" type="password" id="p2" name="password2" class="form-control p-2 pt-0 mt-3" placeholder="Password : ">
+            <input [(ngModel)]="amnt2" type="text" id="amt2" name="amnt2" class="form-control p-2 mt-3 pb-1" placeholder="Amount : ">
+            <button class="btn loginbtn ps-4 pe-4 mt-4 text-center ">Withdraw</button><br>
+
+        </form>
+    </div>
+</div>
+<a class="font-weight-bold p-3 mt-5" href="#">Transaction History></a>

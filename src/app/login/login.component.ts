@@ -37,24 +37,34 @@ export class LoginComponent {
   login(){
     var accnum=this.accno
     var pass=this.pass
+const result=this.ds.login(accnum,pass)
+if(result){
+  this.router.navigateByUrl("dashboard")
+  alert("Login Successfull")
+}
+else
+{
+  alert("Login Failed")
+}
+
     // var userDetails=this.userDetails
-    var userDetails=this.ds.userDetails
+    // var userDetails=this.ds.userDetails
 
-    if(accnum in this.userDetails){
-      if(pass==this.userDetails[accnum]["password"])
-      {
-        alert('Login Successfull')
-        //Redirection
-        this.router.navigateByUrl('dashboard')
-      }
-      else{
-        alert('Incorrect Password')
-      }
-    }
+    // if(accnum in this.userDetails){
+    //   if(pass==this.userDetails[accnum]["password"])
+    //   {
+    //     alert('Login Successfull')
+    //     //Redirection
+    //     this.router.navigateByUrl('dashboard')
+    //   }
+    //   else{
+    //     alert('Incorrect Password')
+    //   }
+    // }
 
-    else{
-      alert('Not Registered Account !')
-    }
+    // else{
+    //   alert('Not Registered Account !')
+    // }
   }
 
 
