@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
@@ -9,17 +9,14 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  accno: any
-  psw: any
-  uname: any
 
   constructor(private ds: DataService, private router: Router, private fb: FormBuilder) { }
 
   //Model For Register Form
   registerForm = this.fb.group({
-    acno: [''],
-    psw: [''],
-    uname: ['']
+    acno: ['',[Validators.required,Validators.pattern('[0-9]+')]],
+    psw: ['',[Validators.required,Validators.pattern('[a-zA-Z0-9]+')]],
+    uname: ['',[Validators.required,Validators.pattern('[A-Za-z]+')]]
   })
 
 
@@ -28,10 +25,11 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    var accno = this.registerForm.value.acno
+    var acno = this.registerForm.value.acno
     var psw = this.registerForm.value.psw
     var uname = this.registerForm.value.uname
-    const result = this.ds.register(accno, uname, psw)
+    if(this.registerForm.valid){
+    const result = this.ds.register(acno, uname, psw)
     if (result) {
       this.router.navigateByUrl("")
       alert("Registeration Successfull !")
@@ -40,5 +38,10 @@ export class RegisterComponent implements OnInit {
       alert("Account Already Exist !")
     }
   }
+  else
+  {
+    alert("Invalid Form !")
+  }
+}
 
 }

@@ -2,13 +2,24 @@
     <h5 class="m-3 ps-4">{{data}}</h5>
 </div>
 <div class="loginbx mt-5 text-center container ps-5 pe-5 ">
-    <form (ngSubmit)="login()" class="container p-5 loginfrm ">
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="container p-5 loginfrm ">
         <h3 class="lgh text-center pb-3">Account Login</h3>
 
-        <input [(ngModel)]="accno" type="text" id="u1" name="uname" class="form-control p-2 mt-3 pb-1" [placeholder]="data1">
+        <input formControlName="acno" type="text" id="u1" name="uname" class="form-control p-2 mt-3 pb-1" [placeholder]="data1">
+        <div *ngIf="this.loginForm.get('acno')?.errors && this.loginForm.get('acno')?.touched" class="text-start ms-2">
+            <p class="text-white"><i class="fa-solid fa-triangle-exclamation"></i>
+                Include Only Numbers.
+            </p>
+        </div>
 
 
-        <input  [(ngModel)]="pass" type="password" id="p1" name="password" class="form-control p-2 pt-0 mt-3" placeholder="Password : ">
+        <input  formControlName="psw" type="password" id="p1" name="password" class="form-control p-2 pt-0 mt-3" placeholder="Password : ">
+
+        <div *ngIf="this.loginForm.get('psw')?.errors && this.loginForm.get('psw')?.touched" class="text-start ms-2">
+            <p class="text-white"><i class="fa-solid fa-triangle-exclamation"></i>
+                Include Only Characters And Numbers.
+            </p>
+        </div>
 
         <!-- Event Binding With Template Rendering Variable
         <input #accno type="text" id="u1" name="uname" class="form-control p-2 mt-2 pb-1" [placeholder]="data1">
