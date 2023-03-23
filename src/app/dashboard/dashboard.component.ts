@@ -11,18 +11,13 @@ import { DataService } from '../services/data.service';
 export class DashboardComponent implements OnInit {
 
 user:any
-
-acno1:any
-psw1:any
-amnt1:any
-
-acno2:any
-psw2:any
-amnt2:any
+acno:any
+today:any
 
 constructor(private ds:DataService,private fb:FormBuilder,private router:Router){
 //Accessing Data From DataService And Storing In A Variable
 this.user=this.ds.currentuser
+this.today=new Date()
 }
 
 
@@ -91,4 +86,13 @@ logout(){
   localStorage.removeItem("currentacno")
   this.router.navigateByUrl("")
 }
+
+delete(){
+  this.acno=JSON.parse(localStorage.getItem("currentacno") || " ")
+}
+
+cancelChild(){
+  this.acno=""
+}
+
 }
