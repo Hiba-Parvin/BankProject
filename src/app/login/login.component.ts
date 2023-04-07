@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
+  //creating model using FormBuilder Class
   loginForm = this.fb.group({
     acno: ['', [Validators.required, Validators.pattern('[0-9]+')]],
     psw: ['', [Validators.required, Validators.pattern('[A-Za-z0-9]+')]]
@@ -46,16 +46,19 @@ export class LoginComponent implements OnInit {
     var accnum = this.loginForm.value.acno
     var pass = this.loginForm.value.psw
     if (this.loginForm.valid) {
-      const result = this.ds.login(accnum, pass)
-
-      if (result) {
+      this.ds.login(accnum, pass).subscribe((result:any)=>{
+        localStorage.setItem("currentuser",result.currentuser)
+        localStorage.setItem("currentacno",JSON.stringify(result.currentacno))
+        localStorage.setItem("token",JSON.stringify(result.token))
+        alert(result.message)
         this.router.navigateByUrl("dashboard")
-        alert("Login Successfull")
+      },
+      result=>{
+        alert(result.error.message)
       }
-      else {
-        alert("Login Failed")
-      }
+      )
     }
+  
     else {
       alert("Invalid Form")
     }

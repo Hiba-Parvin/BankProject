@@ -14,11 +14,10 @@ export class RegisterComponent implements OnInit {
 
   //Model For Register Form
   registerForm = this.fb.group({
-    acno: ['',[Validators.required,Validators.pattern('[0-9]+')]],
-    psw: ['',[Validators.required,Validators.pattern('[a-zA-Z0-9]+')]],
-    uname: ['',[Validators.required,Validators.pattern('[A-Za-z]+')]]
+    acno: ['', [Validators.required, Validators.pattern('[0-9]+')]],
+    psw: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
+    uname: ['', [Validators.required, Validators.pattern('[A-Za-z]+')]]
   })
-
 
   ngOnInit(): void {
 
@@ -28,20 +27,24 @@ export class RegisterComponent implements OnInit {
     var acno = this.registerForm.value.acno
     var psw = this.registerForm.value.psw
     var uname = this.registerForm.value.uname
-    if(this.registerForm.valid){
-    const result = this.ds.register(acno, uname, psw)
-    if (result) {
-      this.router.navigateByUrl("")
-      alert("Registeration Successfull !")
-    }
-    else {
-      alert("Account Already Exist !")
+    if (this.registerForm.valid) {
+      this.ds.register(acno, uname, psw).subscribe((result: any) => {
+        alert(result.message)
+        this.router.navigateByUrl("")
+      },
+      result=>{
+        alert(result.error.message) 
+      })
+      //   if (result) {
+      //     this.router.navigateByUrl("")
+      //     alert("Registeration Successfull !")
+      //   }
+        // else {
+        //   alert("Account Already Exist !")
+        // }
+      }
+      else {
+        alert("Invalid Form !")
+      }
     }
   }
-  else
-  {
-    alert("Invalid Form !")
-  }
-}
-
-}

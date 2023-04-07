@@ -2,7 +2,7 @@
     <h6>{{today | date:"short"}}</h6>
 </div>
 <div class="text-end">
-    <button (click)="delete()" class="btn me-3 border pt-2 pb-2 ps-3 pe-3">   Delete <i class="fa-solid fa-trash"></i> </button>
+    <button (click)="deleteAcc()" class="btn me-3 border pt-2 pb-2 ps-3 pe-3">   Delete <i class="fa-solid fa-trash"></i> </button>
     <button (click)="logout()" class="btn me-3 border pt-2 pb-2 ps-3 pe-3">Logout <i class="fa-solid fa-arrow-right-from-bracket"></i></button>
 </div>
 
@@ -10,7 +10,7 @@
     <button (click)="delete()" class="btn mt-2 me-3 border pt-2 pb-2 ps-3 pe-3">   Delete <i class="fa-solid fa-trash"></i> </button>
 </div> -->
 
-<app-delete (onCancel)="cancelChild()" [item]="acno"></app-delete>
+<app-delete (onDelete)="ondeleteAcc($event)" (onCancel)="cancelChild()" [item]="acno"></app-delete>
 
 <h3 [ngClass]="acno?'hide':''" style="color:rgb(23, 63, 71)" class="p-3">Welcome {{user}}</h3>
 

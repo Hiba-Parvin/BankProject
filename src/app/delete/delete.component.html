@@ -1,5 +1,5 @@
 <div *ngIf="item" class="dlt w-25 container p-3 pt-5 text-center text-white">
     <h6>Do You Want To Delete Your Bank Account {{item}} ?</h6>
-    <button class="btn m-3 border pt-2 pb-2 ps-3 pe-3 text-white">  Yes <i class="fa-solid fa-thumbs-up"></i> </button>
+    <button (click)="delete()" class="btn m-3 border pt-2 pb-2 ps-3 pe-3 text-white">  Yes <i class="fa-solid fa-thumbs-up"></i> </button>
     <button (click)="cancel()" class="btn m-3 border pt-2 pb-2 ps-3 pe-3 text-white">  No <i class="fa-solid fa-thumbs-down"></i></button>
 </div>
